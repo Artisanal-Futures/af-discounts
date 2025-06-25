@@ -251,7 +251,7 @@ export function resolveStripeCompatibleDiscounts(discounts: Discount[], cart: Ca
   return { automatic: bestAutomatic, coupon: bestCoupon, freeShipping: bestShipping };
 }
 
-export function previewDiscount(cart: Cart, discount: Discount, customer?: Customer, context?: DiscountContext): { // Add customer, context
+export function previewDiscount(cart: Cart, discount: Discount, customer?: Customer, context?: DiscountContext): { 
   originalCart: Cart;
   discountAmount: number;
   updatedCartItems?: CartItem[];
@@ -272,7 +272,7 @@ export function previewDiscount(cart: Cart, discount: Discount, customer?: Custo
   }
 
   const discountAmount = calculateDiscountAmount(discount, cart);
-  
+
   if (discountAmount === 0) {
     return {
       originalCart: cart,

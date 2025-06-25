@@ -241,7 +241,7 @@ describe('Additional Validation and Calculation Scenarios', () => {
   });
 
   it('Scenario 15: hasCustomerRemainingUses - should prevent use if global maximumUses exceeded', () => {
-    const contextWithGlobalHistory: DiscountContext = { ...mockContext, usageGlobal: { 'GLOBALMAX_CODE': 100 } }; // Used 100 times
+    const contextWithGlobalHistory: DiscountContext = { ...mockContext, usageGlobal: { 'GLOBALMAX_CODE': 100 } }; 
     const discount: Discount = { id: 'd_global_max', code: 'GLOBALMAX_CODE', type: 'ORDER', amountType: 'FIXED', amount: 100, maximumUses: 100, startsAt: TEST_START, isActive: true }; // Max 100 uses
     const cart: Cart = { storeId: 's1', items: [{ variantId: 'v1', collectionIds: [], quantity: 1, priceInCents: 1000 }] };
 
@@ -250,7 +250,7 @@ describe('Additional Validation and Calculation Scenarios', () => {
   });
 
   it('Scenario 16: calculateDiscountAmount - Fixed product discount should not exceed item price', () => {
-    const item: CartItem = { variantId: 'v_cheap_item', collectionIds: [], quantity: 1, priceInCents: 500 }; // $5 item
+    const item: CartItem = { variantId: 'v_cheap_item', collectionIds: [], quantity: 1, priceInCents: 500 }; 
     const cart: Cart = { storeId: 's1', items: [item] };
     const discount: Discount = { id: 'd_fixed_prod_cap', type: 'PRODUCT', amountType: 'FIXED', amount: 1000, variants: ['v_cheap_item'], startsAt: TEST_START, isActive: true }; // $10 fixed discount
 
